@@ -1,0 +1,232 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding-top: 200px; /* Ajustar según la altura total de la cabecera */
+    transition: background-color 0.5s ease;
+}
+.fixed-header {
+    background: linear-gradient(to right, rgba(255,255,255,0), #004b87); /* Degradado blanco a azul */
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding-bottom: 2px; /* Reducir el espacio entre el título y los botones */
+}
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.header-bottom {
+    display: flex;
+    justify-content: center;
+    padding-top: -25px;
+}
+.logo {
+    width: 100px; /* Establecer el ancho deseado */
+    height: auto; /* Mantener la proporción */
+}
+.logo-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.logo-section img {
+    max-width: 100px;
+    max-height: 100px;
+}
+.btn-login {
+    background-color: #004b87;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-login:hover {
+    background-color: #002147;
+    transform: scale(1.05);
+}
+.btn-login:active {
+    background-color: #002147;
+    transform: scale(1.05);
+}
+.navbar-nav .nav-link {
+    color: white !important;
+    transition: color 0.5s ease;
+    margin-top: -25px;
+}
+.navbar-nav .nav-link:hover {
+    color: #ffd700 !important;
+}
+.main-content {
+    padding: 20px;
+    position: relative; /* Añadir posición relativa para colocar la imagen */
+}
+.image-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Establecer la imagen y su tamaño */
+.image-section div {
+    background-image: url('https://50regionalizacion.ucr.ac.cr/sites/default/files/styles/content/public/2017-10/Golfito.jpg?itok=2QHe9BrZ');
+    background-size: 300% 300%; /* Ajustar el tamaño de la imagen */
+    transition: transform 1s ease-in-out;
+    transform: translateX(-100%); /* Inicialmente fuera de la vista a la izquierda */
+}
+
+/* Posiciones de cada cuadro */
+.image-section div:nth-child(1) {
+    background-position: 0% 0%;
+}
+.image-section div:nth-child(2) {
+    background-position: 50% 0%;
+}
+.image-section div:nth-child(3) {
+    background-position: 100% 0%;
+}
+.image-section div:nth-child(4) {
+    background-position: 0% 50%;
+}
+.image-section div:nth-child(5) {
+    background-position: 50% 50%;
+}
+.image-section div:nth-child(6) {
+    background-position: 100% 50%;
+}
+.image-section div:nth-child(7) {
+    background-position: 0% 100%;
+}
+.image-section div:nth-child(8) {
+    background-position: 50% 100%;
+}
+.image-section div:nth-child(9) {
+    background-position: 100% 100%;
+}
+
+/* Ajuste para cuando la imagen esté cargada */
+.image-section div.loaded {
+    transform: translateX(0); /* Mover a su posición final */
+}
+
+/* Animación de desplazamiento */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.image-section div {
+    animation: slideIn 1s forwards; /* Animación al cargar */
+    animation-delay: calc(var(--order) * 0.1s); /* Diferentes demoras para cada cuadro */
+}
+.image-section div:nth-child(1) { --order: 1; }
+.image-section div:nth-child(2) { --order: 2; }
+.image-section div:nth-child(3) { --order: 3; }
+.image-section div:nth-child(4) { --order: 4; }
+.image-section div:nth-child(5) { --order: 5; }
+.image-section div:nth-child(6) { --order: 6; }
+.image-section div:nth-child(7) { --order: 7; }
+.image-section div:nth-child(8) { --order: 8; }
+.image-section div:nth-child(9) { --order: 9; }
+
+.footer {
+    background-color: #004b87;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: 20px;
+}
+.date-location {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.date-location h3 {
+    color: #004b87;
+    margin-bottom: 10px;
+}
+.date-location p {
+    margin: 0;
+}
+.scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    background-color: #f3f4f6;
+    margin-top: 20px;
+}
+.profile-card {
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.profile-card .profile-image {
+    width: 80px;
+    height: 80px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    margin: 20px auto 10px auto;
+    background-size: cover;
+}
+.profile-card .name {
+    background-color: #87CEEB;
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+}
+.profile-card .occupation {
+    background-color: #004b87;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.flower-img {
+    position: absolute;
+    top: 55%;
+    left: -5px; /* Ajustar la posición inicial */
+    transform: translateY(-50%);
+    max-width: 100px; /* Tamaño máximo de la imagen */
+    z-index: 1; /* Colocar sobre el contenido */
+    animation: moveFlower 5s linear infinite alternate; /* Efecto de movimiento */
+}
+
+@keyframes moveFlower {
+    0% {
+        transform: translateY(-77%);
+    }
+    100% {
+        transform: translateY(-97%); /* Mover hacia arriba */
+    }
+}
